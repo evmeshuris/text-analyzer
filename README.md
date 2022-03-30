@@ -1,33 +1,94 @@
-# _Programming Language Suggester_
+Describe: wordCounter()
 
-#### By _**Evgeniya Meshuris**_
+Test: "It should return 1 if a passage has just one word."
+Code:
+const text = "hello";
+wordCounter(text);
+Expected Output: 1
 
-#### _This is programming language suggester will give a resuat of what language you should learn based on your answers._
+Test: "It should return 2 if a passage has two words."
+Code:
+const text = "hello there";
+wordCounter(text);
+Expected Output: 2
 
-## Technologies Used
+Test: "It should return 0 for an empty string."
+Code: wordCounter("");
+Expected Output: 0
 
-* _HTML_
-* _CSS_
-* _JavaScrypt_
-* _jQuery_
+Test: "It should return 0 for a string that is only spaces."
+Code: wordCounter(" ");
+Expected Output: 0
 
-## Description
+Test: "It should not count numbers as words."
+Code: wordCounter("hi there 77 19");
+Expected Output: 2
 
-_This is programming language suggester will give a resuat of what language you should learn based on your experience, age and occupation._
+Describe: numberOfOccurrencesInText()
 
-## Setup/Installation Requirements
+Test: "It should return 0 occurrences of a word for an empty string."
+Code:
+const text = "";
+const word = "red";
+numberOfOccurrencesInText(word, text);
+Expected Output: 0
 
-* _Fill out the From_
-* _Click Submit to see tha result_
-* _Click Start Over if you want to repeat a request_
+Test: "It should return 1 occurrence of a word when the word and the text are the same."
+Code:
+const text = "red";
+const word = "red";
+numberOfOccurrencesInText(word, text);
+Expected Output: 1
 
-## Known Bugs
+Test: "It should return 0 occurrences of a word when the word and the text are different."
+Code:
+const text = "red";
+const word = "blue";
+numberOfOccurrencesInText(word, text);
+Expected Output: 0
 
-* _None known bugs_
+Test: "It should return the number of occurrences of a word."
+Code:
+const text = "red blue red red red green";
+const word = "red";
+numberOfOccurrencesInText(word, text);
+Expected Output: 4
 
+Describe: boldPassage()
 
-## License
+Test: "It should return a non-matching word in a p tag."
+Code:
+const word = "hello";
+const text = "yo";
+boldPassage(word, text);
+Expected Output: "<p>yo</p>"
 
-Licensed under the [MIT License](LICENSE)
+Test: "It should return a matching word in a b tag."
+Code:
+const word = "hello";
+const text = "hello";
+boldPassage(word, text);
+Expected Output: "<p><b>hello</b></p>"
 
-Copyright (c) _2022_ _Evgeniya Meshuris_
+Test: "It should wrap words that match in `b` tags but not words that don't."
+Code:
+const word = "hello";
+const text = "hello there";
+boldPassage(word, text);
+Expected Output: "<p><b>hello</b> there</p>"
+
+Describle: ThreeMostCommon()
+
+Test: "Most used word is returned"
+Code:
+const text = "this is this used word"
+ThreeMostCommon(text);
+Expected Output: "this"
+
+Describle: totalVowels()
+
+Test: "Count vowels"
+Code:
+const text = "this is this used word"
+totalVowels(text);
+Expected Output: 6
